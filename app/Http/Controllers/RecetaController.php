@@ -117,13 +117,16 @@ class RecetaController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
+     * 
      * @param  \App\Receta  $receta
      * @return \Illuminate\Http\Response
      */
     public function edit(Receta $receta)
     {
-        //
+
+        $categorias = CategoriaReceta::all(['id','nombre']);
+
+        return view('recetas.edit',compact('categorias','receta'));
     }
 
     /**
@@ -135,7 +138,45 @@ class RecetaController extends Controller
      */
     public function update(Request $request, Receta $receta)
     {
-        //
+
+        //Revisar el policy
+        $this->authorize('update', $receta);
+
+        //validacion
+        $data = $request->validate([
+            'titulo' =>  'required|min:6',
+            'categoria' => 'required',
+            'preparacion' => 'required',
+            'ingredientes' => 'required',
+        ]);
+
+        //Asiganr los valores
+        $receta->titulo = $data['titulo'];
+        $receta->preparacion = $data['preparacion'];
+        $receta->ingredientes = $data['ingredientes'];
+        $receta->categoria_id = $data['categoria'];
+
+        // Si el usuario sube un anueva imagen 
+        if (request('imagen')) {
+            
+        //Obtener la ruta de la imagen
+        $ruta_imagen = $request['imagen']->store('upload-recetas','public');
+
+        //Resize de la imagen 
+        $img = Image::make(public_path("storage/{$ruta_imagen}"))->fit(1220,550);
+
+        $img->save();
+
+        //Asiganr al objeto
+        $receta->imagen = $ruta_imagen;
+    }
+
+        $receta->save();
+
+        //redireccionar
+        return redirect()->action('RecetaController@index');
+
+
     }
 
     /**
