@@ -12,8 +12,15 @@ class Receta extends Model
     ];
 
 
+    //Obtiene la categoria de la receta via FK
     public function categoria()
     {
         return $this->belongsTo(CategoriaReceta::class);
+    }
+
+    // Obtiene la informacion dek usuario via FK
+    public function autor()
+    {
+        return $this->belongsTo(User::class, 'user_id'); //FK de esta tabla 
     }
 }
