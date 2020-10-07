@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Ruta para ir a la pagina principal
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/home', 'HomeController@index')->name('home');
+
+//Rutas para todo el CRUD de recetaS
 
 Route::get('/recetas','RecetaController@index')->name('recetas.index');
 
@@ -32,5 +35,15 @@ Route::get('/recetas/{receta}/edit','RecetaController@edit')->name('recetas.edit
 Route::put('/receta/{receta}','RecetaController@update')->name('recetas.update');
 
 Route::delete('/recetas/{receta}','RecetaController@destroy')->name('recetas.destroy');
+
+
+//Rutas para el CRUD de Perfil
+
+Route::get('/perfiles/{perfil}','PerfilController@show')->name('perfiles.show');
+
+Route::get('/perfiles/{perfil}/edit','PerfilController@edit')->name('perfiles.edit');
+
+Route::put('/perfiles/{perfil}','PerfilController@update')->name('perfiles.update');
+
 
 Auth::routes();
