@@ -13,8 +13,9 @@
 </div>
 
 <div class="receta-meta">
+    <br>
     <p>
-        <span class="font-weight-bold text-primary">Escrito en:</span>
+        <span class="font-weight-bold text-primary mt-5">Escrito en:</span>
         {{ $receta->categoria->nombre}}
     </p>
 

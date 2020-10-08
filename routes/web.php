@@ -36,7 +36,6 @@ Route::put('/receta/{receta}','RecetaController@update')->name('recetas.update')
 
 Route::delete('/recetas/{receta}','RecetaController@destroy')->name('recetas.destroy');
 
-
 //Rutas para el CRUD de Perfil
 
 Route::get('/perfiles/{perfil}','PerfilController@show')->name('perfiles.show');
@@ -45,5 +44,6 @@ Route::get('/perfiles/{perfil}/edit','PerfilController@edit')->name('perfiles.ed
 
 Route::put('/perfiles/{perfil}','PerfilController@update')->name('perfiles.update');
 
+//Rutas de login y register
 
 Auth::routes();
