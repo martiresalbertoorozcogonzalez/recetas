@@ -117,7 +117,14 @@ class RecetaController extends Controller
      */
     public function show(Receta $receta)
     {
-        return view('recetas.show',compact('receta'));
+        
+        // Obtener si el usuario le gusta la receta y esta autenticado
+        $like = ( auth()->user()) ? auth()->user()->meGusta->contains($receta->id) : false;
+
+        // Pasa la cantoidad de likes a la vista
+        $likes = $receta->likes->count();
+
+        return view('recetas.show',compact('receta','like','likes'));
     }
 
     /**
