@@ -62399,7 +62399,9 @@ var render = function() {
       on: { click: _vm.LikeReceta }
     }),
     _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.cantidadLikes) + " Les gusto esta receta")])
+    _c("p", [
+      _vm._v(_vm._s(_vm.cantidadLikes) + " persona les gusto esta receta")
+    ])
   ])
 }
 var staticRenderFns = []

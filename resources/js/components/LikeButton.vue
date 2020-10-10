@@ -6,7 +6,7 @@
       :class="{ 'like-active': isActive }"
     ></span>
 
-    <p>{{ cantidadLikes }} Les gusto esta receta</p>
+    <p>{{ cantidadLikes }} persona les gusto esta receta</p>
   </div>
 </template>
 <script>
