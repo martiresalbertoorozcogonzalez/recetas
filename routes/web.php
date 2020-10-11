@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 //Ruta para ir a la pagina principal
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','InicioController@index')->name('inicio.index');
 
 
 //Rutas para todo el CRUD de recetaS
