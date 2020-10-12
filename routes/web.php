@@ -34,6 +34,13 @@ Route::put('/receta/{receta}','RecetaController@update')->name('recetas.update')
 
 Route::delete('/recetas/{receta}','RecetaController@destroy')->name('recetas.destroy');
 
+
+Route::get('/categorias/{categoriaReceta}','CategoriasController@show')->name('categorias.show');
+
+
+// Buscador de recetas
+Route::get('/buscar','RecetaController@search')->name('buscar.show');
+
 //Rutas para el CRUD de Perfil
 
 Route::get('/perfiles/{perfil}','PerfilController@show')->name('perfiles.show');

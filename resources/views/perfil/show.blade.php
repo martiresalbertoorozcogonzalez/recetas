@@ -13,7 +13,7 @@
             <h2 class="text-center mb-2 text-primary">{{$perfil->usuario->name }}</h2>
             <a href="{{$perfil->usuario->url}}">Visitar Sitio</a>
             <div class="biografia">
-                {{$perfil->biografia}}
+                {!!$perfil->biografia!!}
             </div>
         </div>
     </div>
